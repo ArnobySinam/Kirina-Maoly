@@ -73,15 +73,15 @@ FILLED = {
 def icon(name, cls=""):
     extra = f" {cls}" if cls else ""
     if name in FILLED:
-        return f'<svg class="icon icon--fill{extra}" viewBox="0 0 24 24" aria-hidden="true">{FILLED[name]}</svg>'
-    return f'<svg class="icon{extra}" viewBox="0 0 24 24" aria-hidden="true">{ICONS[name]}</svg>'
+        return f'<svg class="icon icon--fill{extra}" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">{FILLED[name]}</svg>'
+    return f'<svg class="icon{extra}" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">{ICONS[name]}</svg>'
 
 
 ARROW = icon("arrow", "icon--arrow")
 STARS = '<div class="stars" aria-label="5 de 5 estrellas">' + icon("star") * 5 + "</div>"
 
 LOGO_MARK = (
-    '<svg class="brand__mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" '
+    '<svg class="brand__mark" width="38" height="38" viewBox="0 0 48 48" fill="none" stroke="currentColor" '
     'stroke-width="1.4" stroke-linecap="round" aria-hidden="true">'
     '<path d="M24 40C14 32 7 26 7 17.5 7 12 11 8 16 8c3.5 0 6.4 2 8 5 1.6-3 4.5-5 8-5 5 0 9 4 9 9.5 0 3.5-1.2 6.5-3.4 9.4"/>'
     '<path d="M29 38l11-13M40 25c1.5-1.6 3.5-1.8 4.6-.8s.8 3.1-.8 4.6L33 39.5" stroke="#C9A46A"/></svg>'
