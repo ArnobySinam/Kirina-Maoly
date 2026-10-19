@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<title>Kirina Maoly Alba · Sistema de diseño</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --primary:#B04A6A;--primary-strong:#93395A;--primary-soft:#E7A9B8;--blush:#F6E3E6;--mist:#FBEFF1;
+  --noir:#151012;--ink:#1E1517;--cocoa:#5E5052;--taupe:#8C7A7D;--line:#EADFDB;--ivory:#FBF7F3;--white:#fff;
+  --gold:#C9A46A;--gold-strong:#A88452;--wine:#6E1A2B;--crimson:#A3202F;--candle:#E89B4C;
+  --display:"Cormorant Garamond",serif;--body:"Jost",sans-serif;--script:"Pinyon Script",cursive;
+  --grad-cta:linear-gradient(135deg,#B04A6A 0%,#93395A 100%);
+}
+@page{size:A4;margin:20mm 17mm 20mm;
+  @bottom-left{content:"Kirina Maoly Alba · Sistema de diseño v1.0";font:400 7.5pt "Jost";color:#8C7A7D;letter-spacing:.06em}
+  @bottom-right{content:counter(page);font:500 8pt "Jost";color:#B04A6A}
+}
+@page cover{margin:0;@bottom-left{content:none}@bottom-right{content:none}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--body);font-weight:400;font-size:9.6pt;line-height:1.6;color:var(--ink);background:#fff}
+.section{break-before:page}
+h1,h2,h3{font-family:var(--display);font-weight:600;color:var(--ink);line-height:1.1}
+.sec-head{display:flex;align-items:flex-end;gap:14px;margin-bottom:6mm;padding-bottom:4mm;border-bottom:1px solid var(--line)}
+.sec-num{font-family:var(--display);font-style:italic;font-weight:500;font-size:46pt;line-height:.8;color:var(--primary-soft)}
+.sec-head h2{font-size:28pt}
+.sec-head .ov{display:block;margin-bottom:2px}
+.ov{font:500 7pt var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--primary)}
+h3{font-size:15pt;margin:6mm 0 3mm;display:flex;align-items:center;gap:8px}
+h3::before{content:"";width:18px;height:1px;background:var(--gold)}
+p{color:var(--cocoa);margin-bottom:2.5mm}
+p.lead{font-size:11pt;font-weight:300;color:var(--ink)}
+em.acc{font-family:var(--display);font-style:italic;color:var(--primary)}
+code,.mono{font-family:"DejaVu Sans Mono",monospace;font-size:7.6pt;color:var(--primary-strong);background:var(--mist);padding:1px 4px;border-radius:4px}
+table{width:100%;border-collapse:collapse;margin:2mm 0 4mm;font-size:8.4pt;break-inside:auto}
+th{font:500 6.8pt var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);text-align:left;padding:2.2mm 2.5mm;border-bottom:1.2px solid var(--ink)}
+td{padding:2.2mm 2.5mm;border-bottom:1px solid var(--line);vertical-align:top;color:var(--cocoa)}
+td strong{color:var(--ink);font-weight:500}
+tr{break-inside:avoid}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
+.card{background:var(--ivory);border:1px solid var(--line);border-radius:12px;padding:5mm;break-inside:avoid}
+.avoid{break-inside:avoid}
+.note{background:var(--mist);border-left:2px solid var(--primary);border-radius:0 10px 10px 0;padding:3.5mm 5mm;margin:3mm 0;color:var(--ink);font-size:8.8pt;break-inside:avoid}
+.note b{font-weight:500;color:var(--primary-strong)}
+
+/* ── Cover ── */
+.cover{page:cover;width:210mm;height:297mm;position:relative;overflow:hidden;background:var(--noir);color:var(--ivory);padding:24mm 22mm}
+.cover .glow{position:absolute;right:-60mm;top:-40mm;width:200mm;height:200mm;border-radius:50%;background:radial-gradient(circle,rgba(176,74,106,.55) 0%,rgba(176,74,106,.12) 45%,transparent 70%)}
+.cover .glow2{position:absolute;left:-50mm;bottom:-70mm;width:170mm;height:170mm;border-radius:50%;background:radial-gradient(circle,rgba(201,164,106,.25) 0%,transparent 65%)}
+.cover .frame{position:absolute;inset:12mm;border:1px solid rgba(201,164,106,.35);border-radius:4px}
+.cover .inner{position:relative;height:100%;display:flex;flex-direction:column}
+.logo{display:flex;align-items:center;gap:10px}
+.logo .name{font-family:var(--script);font-size:26pt;line-height:1;color:var(--ivory)}
+.logo .tag{font:500 6.5pt var(--body);letter-spacing:.38em;color:var(--gold);text-transform:uppercase;margin-top:3px;text-align:center}
+.cover .title{margin-top:auto}
+.cover .title .ov{color:var(--gold);font-size:8pt}
+.cover h1{font-size:64pt;color:var(--ivory);line-height:.98;margin:5mm 0 6mm;font-weight:500}
+.cover h1 em{font-style:italic;color:var(--primary-soft)}
+.cover .sub{font-weight:300;font-size:12pt;color:rgba(251,247,243,.78);max-width:120mm}
+.cover .chips{display:flex;gap:3mm;margin-top:10mm}
+.cover .chip{width:14mm;height:14mm;border-radius:50%;border:1px solid rgba(255,255,255,.18)}
+.cover .meta{margin-top:14mm;display:flex;gap:14mm;border-top:1px solid rgba(201,164,106,.35);padding-top:5mm;font-size:8pt;color:rgba(251,247,243,.7)}
+.cover .meta b{display:block;font:500 6.5pt var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1mm}
+
+/* ── TOC ── */
+.toc{columns:2;column-gap:10mm;margin-top:4mm}
+.toc a{display:flex;align-items:baseline;gap:4mm;padding:3mm 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);break-inside:avoid}
+.toc .n{font-family:var(--display);font-style:italic;font-size:17pt;color:var(--primary);width:9mm}
+.toc .t{font-size:10pt;font-weight:500}
+.toc .d{font-size:7.8pt;color:var(--taupe);display:block;font-weight:400}
+
+.pillars .card h4{font-family:var(--display);font-size:16pt;font-weight:600;margin-bottom:1mm}
+.pillars .card p{font-size:8.4pt;margin:0}
+.kw{display:flex;flex-wrap:wrap;gap:2mm;margin-top:3mm}
+.kw span{font:500 7.5pt var(--body);letter-spacing:.08em;padding:1.5mm 4mm;border-radius:99px;background:var(--blush);color:var(--primary-strong)}
+
+/* ── Color ── */
+.swatch{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;break-inside:avoid}
+.swatch .chip{height:30mm;display:flex;align-items:flex-end;padding:3mm 4mm;font:500 7pt var(--body);letter-spacing:.14em;text-transform:uppercase}
+.swatch.big .chip{height:46mm}
+.swatch .info{padding:3mm 4mm}
+.swatch .nm{font-family:var(--display);font-size:13pt;font-weight:600;line-height:1.1}
+.swatch .hx{font:500 8pt var(--body);color:var(--ink);margin-top:1mm}
+.swatch .tk{font-family:"DejaVu Sans Mono",monospace;font-size:6.6pt;color:var(--taupe)}
+.swatch .us{font-size:7.4pt;color:var(--cocoa);margin-top:1.5mm;line-height:1.4}
+.ratio{display:flex;height:16mm;border-radius:10px;overflow:hidden;margin:2mm 0 2mm;border:1px solid var(--line)}
+.ratio div{display:flex;align-items:center;justify-content:center;font:500 8pt var(--body);letter-spacing:.06em}
+.mini-sw{display:flex;gap:3mm;align-items:center;padding:1.7mm 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.mini-sw i{width:10mm;height:10mm;border-radius:8px;flex:none;border:1px solid rgba(0,0,0,.06)}
+.mini-sw b{font-weight:500;font-size:9pt;display:block}
+.mini-sw small{font-size:7.4pt;color:var(--taupe)}
+.ctr{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
+.ctr>div{border-radius:10px;padding:3.5mm 4mm;break-inside:avoid;border:1px solid var(--line)}
+.ctr .s{font-family:var(--display);font-size:15pt;font-weight:600;line-height:1}
+.ctr .r{font:500 7.2pt var(--body);margin-top:2mm;letter-spacing:.04em;opacity:.85}
+.badge{display:inline-block;font:600 6.4pt var(--body);letter-spacing:.12em;padding:.6mm 2.4mm;border-radius:99px;margin-left:1.5mm;vertical-align:middle}
+
+/* ── Type ── */
+.fam{border-radius:14px;padding:6mm;break-inside:avoid;border:1px solid var(--line)}
+.fam .big{font-size:54pt;line-height:1}
+.fam .alpha{font-size:13pt;margin-top:2mm;color:var(--cocoa);word-break:break-all;line-height:1.35}
+.fam .lbl{display:flex;justify-content:space-between;margin-top:4mm;padding-top:3mm;border-top:1px solid var(--line);font-size:8pt;color:var(--cocoa)}
+.fam .lbl b{font-weight:500;color:var(--ink)}
+.scale-row{display:grid;grid-template-columns:24mm 1fr 34mm;align-items:baseline;gap:4mm;padding:2.6mm 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.scale-row .k{font:500 7pt var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--primary)}
+.scale-row .m{font-size:7.4pt;color:var(--taupe);text-align:right;line-height:1.4}
+.scale-row .sample{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ── Spacing ── */
+.sp-row{display:grid;grid-template-columns:20mm 12mm 1fr 52mm;align-items:center;gap:3mm;padding:1.1mm 0;border-bottom:1px solid var(--line);font-size:8pt;break-inside:avoid}
+.sp-bar{height:5mm;background:var(--grad-cta);border-radius:3px;opacity:.85}
+.gridviz{display:grid;gap:2mm;height:22mm;margin:2mm 0 1mm}
+.gridviz span{background:rgba(176,74,106,.14);border-left:1px solid rgba(176,74,106,.35);border-right:1px solid rgba(176,74,106,.35)}
+.bp{display:flex;align-items:flex-end;gap:3mm;height:34mm;margin:2mm 0}
+.bp div{flex:none;border:1.2px solid var(--ink);border-radius:5px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1.5mm;font:500 7pt var(--body);background:var(--ivory)}
+
+/* ── Radius / shadow ── */
+.rad{height:22mm;background:var(--blush);border:1.2px solid var(--primary);display:flex;align-items:center;justify-content:center;font:500 8pt var(--body);color:var(--primary-strong)}
+.shd{height:24mm;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;font:500 8pt var(--body);color:var(--ink)}
+.grd{height:24mm;border-radius:12px;display:flex;align-items:flex-end;padding:3mm;font:500 7pt var(--body);letter-spacing:.1em;text-transform:uppercase}
+
+/* ── Icons / images ── */
+.ico{display:flex;flex-direction:column;align-items:center;gap:2mm;text-align:center;font-size:7.6pt;color:var(--cocoa);break-inside:avoid}
+.ico .c{width:16mm;height:16mm;border-radius:50%;background:var(--blush);display:flex;align-items:center;justify-content:center}
+.ico svg{width:8mm;height:8mm;stroke:var(--primary);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.ico code{font-size:6.4pt}
+.ar{display:flex;align-items:flex-end;gap:4mm;margin:3mm 0}
+.ar div{background:linear-gradient(160deg,var(--blush),var(--primary-soft));border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;font:500 7pt var(--body);color:var(--primary-strong);text-align:center;line-height:1.3}
+.ar div b{font-family:var(--display);font-size:13pt;color:var(--ink)}
+
+/* ── Components ── */
+.btn{display:inline-flex;align-items:center;gap:2.5mm;border-radius:99px;font:500 8.6pt var(--body);letter-spacing:.04em;padding:0 7mm;height:11mm;white-space:nowrap}
+.btn svg{width:4mm;height:4mm;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.btn-p{background:var(--grad-cta);color:#fff;box-shadow:0 12px 26px -12px rgba(176,74,106,.7)}
+.btn-s{border:1.5px solid var(--primary);color:var(--primary)}
+.btn-d{border:1px solid rgba(255,255,255,.35);color:var(--ivory)}
+.btn-w{background:#25D366;color:var(--ink)}
+.btn-l{color:var(--primary);padding:0;text-decoration:underline;text-underline-offset:4px}
+.stage{border-radius:14px;padding:6mm;break-inside:avoid;border:1px solid var(--line)}
+.stage.dark{background:var(--noir);border:none}
+.stage-row{display:flex;flex-wrap:wrap;gap:4mm;align-items:center}
+.lab{font:500 6.6pt var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);margin-bottom:3mm}
+.chipf{display:inline-flex;align-items:center;height:8.5mm;padding:0 5mm;border-radius:99px;font:500 8pt var(--body);color:var(--ivory);border:1px solid rgba(255,255,255,.25)}
+.chipf.on{background:var(--primary-soft);color:var(--noir);border-color:var(--primary-soft)}
+.svc{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px -12px rgba(30,21,23,.18);border:1px solid var(--line)}
+.svc .img{height:44mm;background:linear-gradient(160deg,#f3d6dc,#d78ea2 70%,#b04a6a);position:relative}
+.svc .img::after{content:"Foto 4:5";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:500 7pt var(--body);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.svc .ic{width:12mm;height:12mm;border-radius:50%;background:var(--blush);border:3px solid #fff;margin:-6mm auto 0;position:relative;display:flex;align-items:center;justify-content:center}
+.svc .ic svg{width:6mm;height:6mm;stroke:var(--primary);fill:none;stroke-width:1.4}
+.svc .bd{padding:2mm 5mm 5mm;text-align:center}
+.svc h5{font:500 10.5pt var(--body);color:var(--ink)}
+.svc p{font-size:7.6pt;line-height:1.5;margin:1.5mm 0 2mm}
+.svc .pr{font-family:var(--display);font-size:13pt;font-weight:600;color:var(--primary-strong)}
+.svc .pr small{font:400 7pt var(--body);color:var(--taupe)}
+.tst{background:#fff;border-radius:16px;padding:6mm;border:1px solid var(--line);position:relative}
+.tst .q{font-family:var(--display);font-size:56pt;line-height:.5;color:var(--primary-soft);height:9mm}
+.tst .stars{color:var(--gold);letter-spacing:1px;font-size:9pt}
+.tst p{font-family:var(--display);font-style:italic;font-size:12pt;color:var(--ink);line-height:1.35}
+.tst .who{display:flex;align-items:center;gap:3mm;margin-top:3mm}
+.tst .av{width:10mm;height:10mm;border-radius:50%;background:linear-gradient(135deg,var(--primary-soft),var(--primary))}
+.tst .who b{font-weight:500;font-size:8.6pt;display:block}
+.tst .who small{font-size:7.2pt;color:var(--taupe)}
+.price{background:#fff;border-radius:16px;padding:6mm;border:1px solid var(--line);text-align:center}
+.price.hl{border:1.5px solid var(--primary);box-shadow:0 22px 44px -20px rgba(176,74,106,.45);position:relative}
+.price .tag{position:absolute;top:-3mm;left:50%;transform:translateX(-50%);background:var(--grad-cta);color:#fff;font:600 6.4pt var(--body);letter-spacing:.14em;padding:1mm 3.5mm;border-radius:99px;text-transform:uppercase}
+.price h5{font:500 10pt var(--body)}
+.price .v{font-family:var(--display);font-size:26pt;font-weight:600;color:var(--ink);line-height:1.1;margin:1mm 0}
+.price ul{list-style:none;text-align:left;font-size:7.8pt;color:var(--cocoa);margin:3mm 0}
+.price li{padding:1mm 0;border-bottom:1px dashed var(--line)}
+.price li::before{content:"✓";color:var(--primary);margin-right:2mm;font-weight:600}
+.inp{height:12mm;border:1px solid var(--line);border-radius:8px;background:#fff;padding:0 4mm;display:flex;flex-direction:column;justify-content:center;font-size:8.6pt;color:var(--ink)}
+.inp small{font-size:6.6pt;color:var(--taupe);letter-spacing:.04em}
+.inp.f{border-color:var(--primary);box-shadow:0 0 0 3px rgba(176,74,106,.18)}
+.inp.e{border-color:#B3261E}
+.err{font-size:7pt;color:#B3261E;margin-top:1mm}
+
+/* ── Architecture ── */
+.wf{display:flex;flex-direction:column;gap:1.6mm}
+.wf .blk{display:grid;grid-template-columns:9mm 34mm 1fr;align-items:center;gap:3mm;border-radius:8px;padding:2.4mm 4mm;font-size:7.8pt;break-inside:avoid}
+.wf .blk .n{font-family:var(--display);font-style:italic;font-size:14pt;line-height:1}
+.wf .blk b{font-weight:500;font-size:9pt}
+.wf .new{font:600 5.8pt var(--body);letter-spacing:.14em;background:var(--gold);color:var(--noir);padding:.5mm 2mm;border-radius:99px;margin-left:2mm;vertical-align:middle}
+.hero-wf{border:1.2px solid var(--ink);border-radius:10px;overflow:hidden;break-inside:avoid;margin:3mm 0}
+.hero-wf .nav{display:flex;align-items:center;justify-content:space-between;padding:3mm 5mm;border-bottom:1px solid var(--line);font-size:7pt;color:var(--cocoa)}
+.hero-wf .nav .lg{font-family:var(--script);font-size:13pt;color:var(--ink)}
+.hero-wf .nav .cta{background:var(--grad-cta);color:#fff;padding:1.2mm 4mm;border-radius:99px;font-weight:500}
+.hero-wf .body{display:grid;grid-template-columns:1fr 1fr;height:62mm}
+.hero-wf .l{background:linear-gradient(100deg,#F6E3E6,#FBF7F3);padding:6mm}
+.hero-wf .l h6{font-family:var(--display);font-size:20pt;font-weight:600;line-height:1;margin:2mm 0}
+.hero-wf .l h6 em{color:var(--primary)}
+.hero-wf .r{background:linear-gradient(120deg,#FBF7F3 0%,#efc9d2 40%,#c97d93 100%);display:flex;align-items:center;justify-content:center;font:500 7pt var(--body);letter-spacing:.2em;color:#fff;text-transform:uppercase}
+.tree{font-family:"DejaVu Sans Mono",monospace;font-size:7.6pt;line-height:1.55;background:var(--noir);color:#E9DCD8;border-radius:12px;padding:5mm 6mm;white-space:pre;break-inside:avoid}
+.tree .h{color:var(--primary-soft)}
+.tree .c{color:#8C7A7D}
+.tree .g{color:var(--gold)}
+.dosdont{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.dosdont div{border-radius:12px;padding:4mm 5mm;break-inside:avoid}
+.dosdont h5{font:600 7pt var(--body);letter-spacing:.16em;text-transform:uppercase;margin-bottom:2mm}
+.dosdont ul{list-style:none;font-size:8.4pt}
+.dosdont li{padding:1.4mm 0;border-bottom:1px solid rgba(0,0,0,.06)}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin:3mm 0}
+.kpi div{background:var(--noir);color:var(--ivory);border-radius:12px;padding:4mm;text-align:center}
+.kpi b{display:block;font-family:var(--display);font-size:20pt;font-weight:600;color:var(--primary-soft);line-height:1}
+.kpi small{font-size:7pt;letter-spacing:.08em;color:rgba(251,247,243,.7)}
+.back{break-before:page;page:cover;width:210mm;height:297mm;background:var(--noir);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--ivory);position:relative;overflow:hidden}
+.back .glow{position:absolute;width:180mm;height:180mm;border-radius:50%;background:radial-gradient(circle,rgba(176,74,106,.35),transparent 65%)}
+.back .x{position:relative}
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div class="glow"></div><div class="glow2"></div><div class="frame"></div>
+  <div class="inner">
+    <div class="logo">
+      <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#E7A9B8" stroke-width="1.3" stroke-linecap="round"><path d="M24 40C14 32 7 26 7 17.5 7 12 11 8 16 8c3.5 0 6.4 2 8 5 1.6-3 4.5-5 8-5 5 0 9 4 9 9.5 0 3.5-1.2 6.5-3.4 9.4"/><path d="M29 38l11-13M40 25c1.5-1.6 3.5-1.8 4.6-.8s.8 3.1-.8 4.6L33 39.5" stroke="#C9A46A"/></svg>
+      <div><div class="name">Kirina Maoly Alba</div><div class="tag">Makeup Artist</div></div>
+    </div>
+    <div class="title">
+      <span class="ov">Sistema de diseño · Estructura web</span>
+      <h1>Belleza<br><em>editorial,</em><br>calidez cercana.</h1>
+      <p class="sub">Guía de identidad visual y arquitectura del sitio: paleta, tipografía, espaciado, componentes y estructura de secciones.</p>
+      <div class="chips">
+        <div class="chip" style="background:#B04A6A"></div><div class="chip" style="background:#E7A9B8"></div><div class="chip" style="background:#F6E3E6"></div><div class="chip" style="background:#FBF7F3"></div><div class="chip" style="background:#C9A46A"></div><div class="chip" style="background:#6E1A2B"></div>
+      </div>
+    </div>
+    <div class="meta">
+      <div><b>Versión</b>1.0 · Octubre 2026</div>
+      <div><b>Ubicación</b>Bucaramanga, Colombia</div>
+      <div><b>Objetivo</b>Convertir visitas en citas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ ÍNDICE + CONCEPTO ═════════════ -->
+<section class="section">
+  <div class="sec-head"><div><span class="ov">Contenido</span><h2>Índice</h2></div></div>
+  <nav class="toc">
+    <a href="#s1"><span class="n">01</span><span class="t">Concepto de marca<span class="d">Idea central y atributos</span></span></a>
+    <a href="#s2"><span class="n">02</span><span class="t">Mejoras frente a la maqueta<span class="d">12 decisiones de diseño</span></span></a>
+    <a href="#s3"><span class="n">03</span><span class="t">Paleta de colores<span class="d">Marca, neutros, acento, temporada</span></span></a>
+    <a href="#s4"><span class="n">04</span><span class="t">Tipografía<span class="d">Familias y escala fluida</span></span></a>
+    <a href="#s5"><span class="n">05</span><span class="t">Espaciado y grid<span class="d">Escala base 4, columnas, breakpoints</span></span></a>
+    <a href="#s6"><span class="n">06</span><span class="t">Bordes, sombras, degradados<span class="d">Profundidad y textura</span></span></a>
+    <a href="#s7"><span class="n">07</span><span class="t">Iconografía e imágenes<span class="d">Íconos, fotografía, logo</span></span></a>
+    <a href="#s8"><span class="n">08</span><span class="t">Componentes<span class="d">Botones, tarjetas, formularios</span></span></a>
+    <a href="#s9"><span class="n">09</span><span class="t">Movimiento y voz<span class="d">Animación y tono de marca</span></span></a>
+    <a href="#s10"><span class="n">10</span><span class="t">Arquitectura del sitio<span class="d">Secciones y mapa del sitio</span></span></a>
+    <a href="#s11"><span class="n">11</span><span class="t">Calidad y archivos<span class="d">Accesibilidad, SEO, estructura</span></span></a>
+  </nav>
+
+  <div id="s1" style="margin-top:12mm">
+    <div class="sec-head"><span class="sec-num">01</span><div><span class="ov">Identidad</span><h2>Concepto de marca</h2></div></div>
+    <p class="lead">Idea central: <em class="acc" style="font-size:15pt">“Belleza editorial con calidez cercana”.</em> Lujo discreto, como una revista de moda, sin perder el trato personal de una artista independiente.</p>
+    <div class="grid4 pillars" style="margin-top:5mm">
+      <div class="card"><h4>Elegante</h4><p>Serif de alto contraste, mucho aire, detalles en champagne.</p></div>
+      <div class="card"><h4>Cálida</h4><p>Rosas empolvados, fondos marfil, esquinas suaves.</p></div>
+      <div class="card"><h4>Profesional</h4><p>Grid estricto, jerarquía clara, precios visibles.</p></div>
+      <div class="card"><h4>Versátil</h4><p>Sistema neutro con módulos de temporada intercambiables.</p></div>
+    </div>
+    <div class="kw"><span>Satinado</span><span>Luminoso</span><span>Nude</span><span>Rosé</span><span>Champagne</span><span>Editorial</span></div>
+  </div>
+</section>
+
+<!-- ═════════════ MEJORAS ═════════════ -->
+<section class="section" id="s2">
+  <div class="sec-head"><span class="sec-num">02</span><div><span class="ov">Evolución</span><h2>Mejoras frente a la maqueta</h2></div></div>
+  <p>La maqueta de referencia tiene una base sólida. Estas decisiones la llevan a un nivel más profesional y orientado a la reserva.</p>
+  <table>
+    <tr><th style="width:6mm">#</th><th style="width:44mm">En la maqueta</th><th>Mejora propuesta</th><th style="width:44mm">Por qué</th></tr>
+    <tr><td>01</td><td>Rosa CTA claro con texto blanco</td><td><strong>Rosa Kirina #B04A6A</strong> — contraste 5.2 : 1</td><td>Legibilidad (AA) y aspecto premium</td></tr>
+    <tr><td>02</td><td>Sin acento metálico</td><td>Acento <strong>Champagne #C9A46A</strong> en estrellas, líneas y detalles</td><td>Percepción de lujo; eco de la joyería</td></tr>
+    <tr><td>03</td><td>“Precios” en menú sin sección</td><td>Sección <strong>Paquetes y precios</strong> con tarjeta destacada</td><td>Menos fricción; filtra clientes</td></tr>
+    <tr><td>04</td><td>No explica cómo reservar</td><td>Sección <strong>Cómo funciona</strong> en 4 pasos</td><td>Confianza y claridad</td></tr>
+    <tr><td>05</td><td>Sin prueba social numérica</td><td><strong>Barra de cifras</strong>: años, clientas, eventos, valoración</td><td>Credibilidad inmediata</td></tr>
+    <tr><td>06</td><td>Galería estática</td><td>Filtros + <strong>lightbox</strong> + slider <strong>antes/después</strong></td><td>Muestra la transformación</td></tr>
+    <tr><td>07</td><td>Contacto solo en el footer</td><td>Sección <strong>Reserva</strong>: formulario → WhatsApp, mapa, horarios</td><td>Canal de conversión principal</td></tr>
+    <tr><td>08</td><td>Sin preguntas frecuentes</td><td><strong>FAQ</strong> en acordeón</td><td>Resuelve objeciones</td></tr>
+    <tr><td>09</td><td>Sin acceso rápido a WhatsApp</td><td><strong>Botón flotante</strong> + CTA en header</td><td>Canal preferido en Colombia</td></tr>
+    <tr><td>10</td><td>Banner de Halloween fijo</td><td><strong>Módulo de temporada</strong> intercambiable</td><td>Reutilizable todo el año</td></tr>
+    <tr><td>11</td><td>Íconos genéricos de relleno</td><td>Íconos lineales finos <strong>Phosphor Light</strong></td><td>Estética fina y unificada</td></tr>
+    <tr><td>12</td><td>Sin firma personal</td><td><strong>Firma manuscrita</strong> + certificaciones y marcas</td><td>Humaniza y aporta autoridad</td></tr>
+  </table>
+</section>
+
+<!-- ═════════════ COLOR 1 ═════════════ -->
+<section class="section" id="s3">
+  <div class="sec-head"><span class="sec-num">03</span><div><span class="ov">Color</span><h2>Paleta de colores</h2></div></div>
+  <h3>Colores de marca</h3>
+  <div class="grid3">
+    <div class="swatch big"><div class="chip" style="background:#B04A6A;color:#fff">Principal · CTA</div><div class="info"><div class="nm">Rosa Kirina</div><div class="hx">#B04A6A · 176 74 106</div><div class="tk">--color-primary</div><div class="us">Botones, enlaces, íconos activos.</div></div></div>
+    <div class="swatch big"><div class="chip" style="background:#93395A;color:#fff">Hover · Énfasis</div><div class="info"><div class="nm">Rosa Profundo</div><div class="hx">#93395A · 147 57 90</div><div class="tk">--color-primary-strong</div><div class="us">Estado hover/pressed, títulos acento.</div></div></div>
+    <div class="swatch big"><div class="chip" style="background:#151012;color:#E7A9B8">Base oscura</div><div class="info"><div class="nm">Noir</div><div class="hx">#151012 · 21 16 18</div><div class="tk">--color-noir</div><div class="us">Galería, footer, menú móvil.</div></div></div>
+  </div>
+  <div class="grid4" style="margin-top:4mm">
+    <div class="swatch"><div class="chip" style="background:#E7A9B8;color:#151012"></div><div class="info"><div class="nm">Rosa Pétalo</div><div class="hx">#E7A9B8</div><div class="tk">--color-primary-soft</div><div class="us">Acentos sobre oscuro.</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F6E3E6"></div><div class="info"><div class="nm">Blush</div><div class="hx">#F6E3E6</div><div class="tk">--color-blush</div><div class="us">Fondos de sección, chips.</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#FBEFF1"></div><div class="info"><div class="nm">Niebla Rosa</div><div class="hx">#FBEFF1</div><div class="tk">--color-mist</div><div class="us">Fondos sutiles, hover.</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#C9A46A;color:#151012"></div><div class="info"><div class="nm">Champagne</div><div class="hx">#C9A46A</div><div class="tk">--color-gold</div><div class="us">Estrellas, líneas, detalles.</div></div></div>
+  </div>
+  <h3>Proporción de uso · 60 / 30 / 10</h3>
+  <div class="ratio">
+    <div style="flex:60;background:#FBF7F3;color:#5E5052">60 % Marfil · Blanco</div>
+    <div style="flex:30;background:#1E1517;color:#FBF7F3">30 % Tinta · Noir · Blush</div>
+    <div style="flex:10;background:var(--grad-cta);color:#fff">10 %</div>
+  </div>
+  <p style="font-size:8.4pt">El 10 % es para Rosa Kirina y Champagne (CTA y detalles). <strong style="font-weight:500;color:var(--ink)">El rosa nunca se usa como fondo de grandes áreas.</strong></p>
+</section>
+
+<!-- ═════════════ COLOR 2 ═════════════ -->
+<section class="section">
+  <div class="grid2">
+    <div>
+      <h3 style="margin-top:0">Neutros</h3>
+      <div class="mini-sw"><i style="background:#151012"></i><div><b>Noir · #151012</b><small>Secciones oscuras</small></div></div>
+      <div class="mini-sw"><i style="background:#1E1517"></i><div><b>Tinta · #1E1517</b><small>Texto principal y títulos</small></div></div>
+      <div class="mini-sw"><i style="background:#5E5052"></i><div><b>Cacao · #5E5052</b><small>Texto secundario, párrafos</small></div></div>
+      <div class="mini-sw"><i style="background:#8C7A7D"></i><div><b>Taupe · #8C7A7D</b><small>Metadatos grandes, placeholders</small></div></div>
+      <div class="mini-sw"><i style="background:#EADFDB"></i><div><b>Línea · #EADFDB</b><small>Bordes y divisores</small></div></div>
+      <div class="mini-sw"><i style="background:#FBF7F3"></i><div><b>Marfil · #FBF7F3</b><small>Fondo base del sitio</small></div></div>
+      <div class="mini-sw"><i style="background:#FFFFFF"></i><div><b>Blanco · #FFFFFF</b><small>Tarjetas y formularios</small></div></div>
+    </div>
+    <div>
+      <h3 style="margin-top:0">Temporada · Halloween</h3>
+      <div class="mini-sw"><i style="background:#6E1A2B"></i><div><b>Borgoña · #6E1A2B</b><small>Fondo del banner</small></div></div>
+      <div class="mini-sw"><i style="background:#A3202F"></i><div><b>Carmesí · #A3202F</b><small>Degradados y brillos</small></div></div>
+      <div class="mini-sw"><i style="background:#E89B4C"></i><div><b>Luz de vela · #E89B4C</b><small>Halo cálido puntual</small></div></div>
+      <h3>Estados</h3>
+      <div class="mini-sw"><i style="background:#2F7D5B"></i><div><b>Éxito · #2F7D5B</b><small>Formulario enviado</small></div></div>
+      <div class="mini-sw"><i style="background:#B7791F"></i><div><b>Aviso · #B7791F</b><small>Poca disponibilidad</small></div></div>
+      <div class="mini-sw"><i style="background:#B3261E"></i><div><b>Error · #B3261E</b><small>Validación de campos</small></div></div>
+      <div class="mini-sw"><i style="background:#3A6EA5"></i><div><b>Info · #3A6EA5</b><small>Mensajes neutros</small></div></div>
+    </div>
+  </div>
+  <h3>Contraste verificado · WCAG 2.2</h3>
+  <div class="ctr">
+    <div style="background:#FBF7F3;color:#1E1517"><div class="s">Tinta / Marfil</div><div class="r">16.8 : 1 <span class="badge" style="background:#1E1517;color:#fff">AAA</span></div></div>
+    <div style="background:#FBF7F3;color:#5E5052"><div class="s">Cacao / Marfil</div><div class="r">7.2 : 1 <span class="badge" style="background:#5E5052;color:#fff">AAA</span></div></div>
+    <div style="background:#B04A6A;color:#fff;border:none"><div class="s">Blanco / Rosa Kirina</div><div class="r">5.2 : 1 <span class="badge" style="background:#fff;color:#B04A6A">AA</span></div></div>
+    <div style="background:#93395A;color:#fff;border:none"><div class="s">Blanco / Rosa Profundo</div><div class="r">7.1 : 1 <span class="badge" style="background:#fff;color:#93395A">AAA</span></div></div>
+    <div style="background:#FBF7F3;color:#B04A6A"><div class="s">Rosa Kirina / Marfil</div><div class="r">4.9 : 1 <span class="badge" style="background:#B04A6A;color:#fff">AA</span></div></div>
+    <div style="background:#151012;color:#FBF7F3;border:none"><div class="s">Marfil / Noir</div><div class="r">17.7 : 1 <span class="badge" style="background:#FBF7F3;color:#151012">AAA</span></div></div>
+    <div style="background:#151012;color:#E7A9B8;border:none"><div class="s">Pétalo / Noir</div><div class="r">9.7 : 1 <span class="badge" style="background:#E7A9B8;color:#151012">AAA</span></div></div>
+    <div style="background:#151012;color:#C9A46A;border:none"><div class="s">Champagne / Noir</div><div class="r">8.1 : 1 <span class="badge" style="background:#C9A46A;color:#151012">AAA</span></div></div>
+    <div style="background:#FBF7F3;color:#8C7A7D"><div class="s">Taupe / Marfil</div><div class="r">3.8 : 1 <span class="badge" style="background:#EADFDB;color:#5E5052">SOLO GRANDE</span></div></div>
+  </div>
+</section>
+
+<!-- ═════════════ TYPE ═════════════ -->
+<section class="section" id="s4">
+  <div class="sec-head"><span class="sec-num">04</span><div><span class="ov">Tipografía</span><h2>Familias tipográficas</h2></div></div>
+  <div class="grid2">
+    <div class="fam" style="background:var(--ivory)">
+      <span class="ov">Display · Títulos</span>
+      <div class="big" style="font-family:var(--display);font-weight:600">Aa <em style="color:var(--primary);font-weight:500">Aa</em></div>
+      <div class="alpha" style="font-family:var(--display);font-weight:500">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ abcdefghijklmnñopqrstuvwxyz 0123456789</div>
+      <div class="lbl"><b>Cormorant Garamond</b><span>500 · 600 · 600 itálica</span></div>
+    </div>
+    <div class="fam">
+      <span class="ov">Texto · Interfaz</span>
+      <div class="big" style="font-family:var(--body);font-weight:300">Aa <span style="font-weight:500">Aa</span></div>
+      <div class="alpha" style="font-family:var(--body);font-weight:400;font-size:11pt">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ abcdefghijklmnñopqrstuvwxyz 0123456789</div>
+      <div class="lbl"><b>Jost</b><span>300 · 400 · 500 · 600</span></div>
+    </div>
+  </div>
+  <div class="fam" style="margin-top:5mm;background:var(--noir);border:none;display:flex;align-items:center;justify-content:space-between">
+    <div><span class="ov" style="color:var(--gold)">Firma · Logo</span><div style="font-family:var(--script);font-size:40pt;color:var(--ivory);line-height:1.2">Kirina Maoly Alba</div></div>
+    <div style="text-align:right;color:rgba(251,247,243,.7);font-size:8pt"><b style="color:#fff;font-weight:500;font-size:10pt">Pinyon Script</b><br>Solo logo y firma.<br>Nunca en párrafos.</div>
+  </div>
+  <h3>Recurso de estilo</h3>
+  <div class="card" style="text-align:center;padding:8mm">
+    <div style="font-family:var(--display);font-weight:600;font-size:34pt;line-height:1.05">Tu belleza en cada<br><em style="color:var(--primary);font-weight:500">momento especial</em></div>
+    <p style="margin:3mm 0 0;font-size:8pt">Resaltar una palabra o frase del título en itálica y Rosa Kirina.</p>
+  </div>
+  <div class="grid3" style="margin-top:5mm">
+    <div class="note" style="margin:0"><b>Línea de lectura</b><br>60–72 caracteres (<code>max-width: 65ch</code>).</div>
+    <div class="note" style="margin:0"><b>Mínimo Cormorant</b><br>Nunca por debajo de 22 px.</div>
+    <div class="note" style="margin:0"><b>Alineación</b><br>Izquierda en texto; centrado solo en cabeceras.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-head"><div><span class="ov">Tipografía</span><h2>Escala fluida · razón 1.25</h2></div></div>
+  <div class="scale-row"><span class="k">Display</span><span class="sample" style="font-family:var(--display);font-weight:600;font-size:40pt;line-height:1">Tu belleza</span><span class="m">Cormorant 600<br>76 / 44 px · lh 1.02</span></div>
+  <div class="scale-row"><span class="k">H1</span><span class="sample" style="font-family:var(--display);font-weight:600;font-size:32pt;line-height:1.05">Mis servicios</span><span class="m">Cormorant 600<br>60 / 38 px · lh 1.08</span></div>
+  <div class="scale-row"><span class="k">H2</span><span class="sample" style="font-family:var(--display);font-weight:600;font-size:25pt">Galería de maquillajes</span><span class="m">Cormorant 600<br>46 / 32 px · lh 1.12</span></div>
+  <div class="scale-row"><span class="k">H3</span><span class="sample" style="font-family:var(--display);font-weight:600;font-size:17pt">Kirina Maoly Alba</span><span class="m">Cormorant 600<br>30 / 25 px · lh 1.2</span></div>
+  <div class="scale-row"><span class="k">H4</span><span class="sample" style="font-weight:500;font-size:12pt">Reuniones y Eventos</span><span class="m">Jost 500<br>20 / 18 px · lh 1.35</span></div>
+  <div class="scale-row"><span class="k">Lead</span><span class="sample" style="font-weight:300;font-size:12pt">Maquillaje profesional para resaltar lo mejor de ti.</span><span class="m">Jost 300<br>20 / 18 px · lh 1.6</span></div>
+  <div class="scale-row"><span class="k">Body</span><span class="sample" style="font-size:10pt">Soy una apasionada del maquillaje y el arte de resaltar la belleza única.</span><span class="m">Jost 400<br>17 / 16 px · lh 1.7</span></div>
+  <div class="scale-row"><span class="k">Small</span><span class="sample" style="font-size:8.4pt;color:var(--cocoa)">Un look especial para un día inolvidable.</span><span class="m">Jost 400<br>14 px · lh 1.6</span></div>
+  <div class="scale-row"><span class="k">Overline</span><span class="sample ov" style="font-size:7pt">Sobre mí</span><span class="m">Jost 500 · MAYÚS<br>12 px · tracking 0.2em</span></div>
+  <div class="scale-row"><span class="k">Botón</span><span class="sample"><span class="btn btn-p" style="height:9mm;font-size:8pt">Agenda tu cita</span></span><span class="m">Jost 500<br>15 px · tracking 0.04em</span></div>
+  <div class="note" style="margin-top:5mm"><b>Implementación:</b> cada tamaño se define con <code>clamp()</code> para escalar suavemente entre móvil (360 px) y escritorio (1280 px). Ver tokens <code>--fs-*</code> en el archivo .md, sección 13.</div>
+</section>
+
+<!-- ═════════════ SPACING ═════════════ -->
+<section class="section" id="s5">
+  <div class="sec-head"><span class="sec-num">05</span><div><span class="ov">Layout</span><h2>Espaciado, grid y breakpoints</h2></div></div>
+  <h3 style="margin-top:0">Escala de espaciado · base 4 px</h3>
+  <div class="sp-row"><code>--space-1</code><b>4</b><div><div class="sp-bar" style="width:1.4mm"></div></div><span>Ícono–texto mínimo</span></div>
+  <div class="sp-row"><code>--space-2</code><b>8</b><div><div class="sp-bar" style="width:2.8mm"></div></div><span>Dentro de chips</span></div>
+  <div class="sp-row"><code>--space-3</code><b>12</b><div><div class="sp-bar" style="width:4.2mm"></div></div><span>Padding de chips</span></div>
+  <div class="sp-row"><code>--space-4</code><b>16</b><div><div class="sp-bar" style="width:5.6mm"></div></div><span>Gutter móvil, inputs</span></div>
+  <div class="sp-row"><code>--space-5</code><b>24</b><div><div class="sp-bar" style="width:8.4mm"></div></div><span>Padding de tarjetas</span></div>
+  <div class="sp-row"><code>--space-6</code><b>32</b><div><div class="sp-bar" style="width:11.2mm"></div></div><span>Título → contenido</span></div>
+  <div class="sp-row"><code>--space-7</code><b>48</b><div><div class="sp-bar" style="width:16.8mm"></div></div><span>Entre bloques</span></div>
+  <div class="sp-row"><code>--space-8</code><b>64</b><div><div class="sp-bar" style="width:22.4mm"></div></div><span>Cabecera de sección</span></div>
+  <div class="sp-row"><code>--space-9</code><b>96</b><div><div class="sp-bar" style="width:33.6mm"></div></div><span>Sección (tablet)</span></div>
+  <div class="sp-row"><code>--space-10</code><b>128</b><div><div class="sp-bar" style="width:44.8mm"></div></div><span>Sección (escritorio)</span></div>
+
+  <h3>Grid de columnas</h3>
+  <div class="grid3">
+    <div class="card"><span class="ov">Móvil</span><div class="gridviz" style="grid-template-columns:repeat(4,1fr)"><span></span><span></span><span></span><span></span></div><p style="font-size:7.6pt;margin:0">4 col · gutter 16 · margen 16</p></div>
+    <div class="card"><span class="ov">Tablet</span><div class="gridviz" style="grid-template-columns:repeat(8,1fr);gap:1.4mm"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><p style="font-size:7.6pt;margin:0">8 col · gutter 24 · margen 32</p></div>
+    <div class="card"><span class="ov">Escritorio</span><div class="gridviz" style="grid-template-columns:repeat(12,1fr);gap:1mm"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><p style="font-size:7.6pt;margin:0">12 col · gutter 24 · máx. 1240</p></div>
+  </div>
+
+  <h3>Breakpoints · mobile-first</h3>
+  <div class="bp">
+    <div style="width:12mm;height:20mm">sm</div>
+    <div style="width:20mm;height:26mm">md</div>
+    <div style="width:30mm;height:22mm">lg</div>
+    <div style="width:40mm;height:28mm">xl</div>
+    <div style="width:50mm;height:33mm">2xl</div>
+  </div>
+  <table>
+    <tr><th>Token</th><th>sm</th><th>md</th><th>lg</th><th>xl</th><th>2xl</th></tr>
+    <tr><td><strong>Mínimo</strong></td><td>480 px</td><td>768 px</td><td>1024 px</td><td>1280 px</td><td>1536 px</td></tr>
+    <tr><td><strong>Padding sección</strong></td><td>72 px</td><td>96 px</td><td>128 px</td><td>128 px</td><td>128 px</td></tr>
+  </table>
+</section>
+
+<!-- ═════════════ RADIUS / SHADOW ═════════════ -->
+<section class="section" id="s6">
+  <div class="sec-head"><span class="sec-num">06</span><div><span class="ov">Profundidad</span><h2>Bordes, sombras y degradados</h2></div></div>
+  <h3 style="margin-top:0">Radios</h3>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4mm">
+    <div><div class="rad" style="border-radius:8px">8</div><p style="font-size:7.4pt;margin-top:1.5mm"><code>sm</code> Inputs</p></div>
+    <div><div class="rad" style="border-radius:14px">14</div><p style="font-size:7.4pt;margin-top:1.5mm"><code>md</code> Galería</p></div>
+    <div><div class="rad" style="border-radius:20px">20</div><p style="font-size:7.4pt;margin-top:1.5mm"><code>lg</code> Tarjetas</p></div>
+    <div><div class="rad" style="border-radius:32px">32</div><p style="font-size:7.4pt;margin-top:1.5mm"><code>xl</code> Banners</p></div>
+    <div><div class="rad" style="border-radius:99px">pill</div><p style="font-size:7.4pt;margin-top:1.5mm"><code>pill</code> Botones</p></div>
+  </div>
+  <h3>Sombras · cálidas y tintadas</h3>
+  <div class="grid4" style="background:var(--ivory);padding:6mm;border-radius:14px">
+    <div><div class="shd" style="box-shadow:0 1px 2px rgba(30,21,23,.08)">sm</div><p style="font-size:7.2pt;margin-top:2mm">Inputs, chips</p></div>
+    <div><div class="shd" style="box-shadow:0 10px 30px -12px rgba(30,21,23,.2)">md</div><p style="font-size:7.2pt;margin-top:2mm">Tarjetas en reposo</p></div>
+    <div><div class="shd" style="box-shadow:0 28px 60px -20px rgba(30,21,23,.3)">lg</div><p style="font-size:7.2pt;margin-top:2mm">Hover, modales</p></div>
+    <div><div class="shd" style="box-shadow:0 12px 32px -10px rgba(176,74,106,.55);color:var(--primary)">glow</div><p style="font-size:7.2pt;margin-top:2mm">CTA en hover</p></div>
+  </div>
+  <h3>Degradados</h3>
+  <div class="grid3">
+    <div><div class="grd" style="background:linear-gradient(135deg,#B04A6A,#93395A);color:#fff">grad-cta</div><p style="font-size:7.4pt;margin-top:1.5mm">Botón primario</p></div>
+    <div><div class="grd" style="background:linear-gradient(100deg,#F6E3E6 0%,#FBF7F3 55%,#fff 100%);color:var(--primary-strong);border:1px solid var(--line)">grad-hero</div><p style="font-size:7.4pt;margin-top:1.5mm">Hero, fusión con la foto</p></div>
+    <div><div class="grd" style="background:linear-gradient(180deg,#151012,#231A1C);color:var(--primary-soft)">grad-noir</div><p style="font-size:7.4pt;margin-top:1.5mm">Galería, footer</p></div>
+    <div><div class="grd" style="background:radial-gradient(120% 120% at 80% 50%,#A3202F 0%,#6E1A2B 45%,#151012 100%);color:#E89B4C">grad-season</div><p style="font-size:7.4pt;margin-top:1.5mm">Banner de temporada</p></div>
+    <div><div class="grd" style="background:#FBF7F3;border:1px solid var(--line);align-items:center;justify-content:center"><div style="width:70%;height:1.4px;background:linear-gradient(90deg,transparent,#C9A46A,transparent);position:relative"><span style="position:absolute;left:50%;top:50%;width:6px;height:6px;background:#C9A46A;transform:translate(-50%,-50%) rotate(45deg)"></span></div></div><p style="font-size:7.4pt;margin-top:1.5mm">grad-gold-line · divisor</p></div>
+    <div><div class="grd" style="background:linear-gradient(160deg,#FBEFF1,#F6E3E6);color:var(--primary-strong)">mist → blush</div><p style="font-size:7.4pt;margin-top:1.5mm">Testimonios, reserva</p></div>
+  </div>
+</section>
+
+<!-- ═════════════ ICONS / IMAGES ═════════════ -->
+<section class="section" id="s7">
+  <div class="sec-head"><span class="sec-num">07</span><div><span class="ov">Recursos visuales</span><h2>Iconografía e imágenes</h2></div></div>
+  <h3 style="margin-top:0">Íconos · Phosphor Light</h3>
+  <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:3mm">
+    <div class="ico"><div class="c"><svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M12 21 8 9l4-6 4 6z"/></svg></div>Calidad<code>diamond</code></div>
+    <div class="ico"><div class="c"><svg viewBox="0 0 24 24"><path d="M14 4l6 6-8 8c-2 2-5 2-7 1 1-2 1-5 3-7z"/><path d="M12 6l6 6"/></svg></div>Productos<code>paint-brush</code></div>
+    <div class="ico"><div class="c"><svg viewBox="0 0 24 24"><path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/></svg></div>Personalizado<code>heart</code></div>
+    <div class="ico"><div class="c"><svg viewBox="0 0 24 24"><path d="M8 3h3l-.5 7a2.5 2.5 0 0 1-2 0zM13 3h3l.5 7a2.5 2.5 0 0 1-2 0z"/><path d="M9.5 10.3V20M14.5 10.3V20M7 20h5M12 20h5"/></svg></div>Eventos<code>champagne</code></div>
+    <div class="ico"><div class="c"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/></svg></div>Grados<code>graduation-cap</code></div>
+    <div class="ico"><div class="c"><svg viewBox="0 0 24 24"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 5l2-2 2 2-2 2z"/></svg></div>Bodas<code>rings</code></div>
+    <div class="ico"><div class="c"><svg viewBox="0 0 24 24"><path d="M12 3a8 8 0 0 0-8 8c0 3 1.5 5 3.5 6V20h9v-3c2-1 3.5-3 3.5-6a8 8 0 0 0-8-8z"/><circle cx="9" cy="11" r="1.6"/><circle cx="15" cy="11" r="1.6"/><path d="M11 20v-2M13 20v-2"/></svg></div>Halloween<code>skull</code></div>
+    <div class="ico"><div class="c"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M12 18.5s-3-1.8-3-3.8a1.5 1.5 0 0 1 3-.6 1.5 1.5 0 0 1 3 .6c0 2-3 3.8-3 3.8z"/></svg></div>Agenda<code>calendar-heart</code></div>
+  </div>
+  <table style="margin-top:4mm">
+    <tr><th>Tamaño</th><th>20 px</th><th>24 px</th><th>32 px</th><th>40 px</th></tr>
+    <tr><td><strong>Uso</strong></td><td>UI, botones</td><td>Listas</td><td>Beneficios</td><td>Servicios</td></tr>
+    <tr><td><strong>Color</strong></td><td colspan="4">Rosa Kirina sobre claro · Rosa Pétalo o Champagne sobre oscuro · contenedor circular Blush 56 px</td></tr>
+  </table>
+
+  <h3>Fotografía · proporciones</h3>
+  <div class="ar">
+    <div style="width:56mm;height:31.5mm"><b>16:9</b>Hero escritorio<br>2400×1350</div>
+    <div style="width:25.2mm;height:31.5mm"><b>4:5</b>Hero móvil<br>Servicios</div>
+    <div style="width:23.6mm;height:31.5mm"><b>3:4</b>Sobre mí<br>1200×1600</div>
+    <div style="width:31.5mm;height:31.5mm"><b>1:1</b>Galería<br>1200 px</div>
+    <div style="width:14mm;height:14mm;border-radius:50%"><b style="font-size:9pt">1:1</b></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <span class="ov">Dirección de arte</span>
+      <ul style="list-style:none;font-size:8.2pt;color:var(--cocoa);margin-top:2mm;line-height:1.7">
+        <li>◆ <b style="font-weight:500;color:var(--ink)">Trabajos reales</b> de Kirina, no imágenes genéricas</li>
+        <li>◆ Luz suave, cálida y difusa; fondos neutros</li>
+        <li>◆ Piel natural, sin sobre-suavizado</li>
+        <li>◆ Misma temperatura de color en todo el set</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="ov">Técnico</span>
+      <ul style="list-style:none;font-size:8.2pt;color:var(--cocoa);margin-top:2mm;line-height:1.7">
+        <li>◆ AVIF + WebP de respaldo, <code>srcset</code></li>
+        <li>◆ <code>loading="lazy"</code> excepto el hero</li>
+        <li>◆ &lt; 250 KB grandes · &lt; 80 KB miniaturas</li>
+        <li>◆ <code>alt</code> descriptivo en cada imagen</li>
+      </ul>
+    </div>
+  </div>
+  <h3>Logo</h3>
+  <div class="grid3">
+    <div class="card" style="background:var(--ivory);display:flex;flex-direction:column;align-items:center;justify-content:center;height:30mm"><div style="font-family:var(--script);font-size:15pt;color:var(--ink);line-height:1">Kirina Maoly Alba</div><div style="font:500 5.6pt var(--body);letter-spacing:.38em;color:var(--primary);margin-top:1.5mm">MAKEUP ARTIST</div></div>
+    <div class="card" style="background:var(--noir);border:none;display:flex;flex-direction:column;align-items:center;justify-content:center;height:30mm"><div style="font-family:var(--script);font-size:15pt;color:var(--ivory);line-height:1">Kirina Maoly Alba</div><div style="font:500 5.6pt var(--body);letter-spacing:.38em;color:var(--gold);margin-top:1.5mm">MAKEUP ARTIST</div></div>
+    <div class="card" style="background:var(--blush);display:flex;align-items:center;justify-content:center;height:30mm"><div style="width:18mm;height:18mm;border-radius:50%;background:var(--grad-cta);display:flex;align-items:center;justify-content:center;font-family:var(--script);font-size:20pt;color:#fff">K</div></div>
+  </div>
+  <p style="font-size:7.6pt;margin-top:2mm">Versiones: sobre claro · sobre oscuro · monograma (favicon, avatar). Área de respeto = altura de la “K”. Ancho mínimo 120 px.</p>
+</section>
+
+<!-- ═════════════ COMPONENTS ═════════════ -->
+<section class="section" id="s8">
+  <div class="sec-head"><span class="sec-num">08</span><div><span class="ov">Interfaz</span><h2>Componentes</h2></div></div>
+  <div class="stage">
+    <div class="lab">Botones · sobre claro</div>
+    <div class="stage-row">
+      <span class="btn btn-p"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agenda tu cita</span>
+      <span class="btn btn-s">Ver portafolio<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      <span class="btn btn-w"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>WhatsApp</span>
+      <span class="btn btn-l">Ver más</span>
+    </div>
+  </div>
+  <div class="stage dark" style="margin-top:3mm">
+    <div class="lab" style="color:rgba(251,247,243,.55)">Sobre oscuro · chips de filtro</div>
+    <div class="stage-row">
+      <span class="btn btn-d">Ver más trabajos<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      <span class="chipf on">Todos</span><span class="chipf">Eventos</span><span class="chipf">Grados</span><span class="chipf">Bodas</span><span class="chipf">Halloween</span>
+    </div>
+  </div>
+
+  <div class="grid3" style="margin-top:4mm;align-items:start">
+    <div class="avoid">
+      <div class="lab">Tarjeta de servicio</div>
+      <div class="svc">
+        <div class="img"></div>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></div>
+        <div class="bd"><h5>Grados</h5><p>Un look especial para un día inolvidable. Resalta tu belleza en tu graduación.</p><div class="pr"><small>Desde</small> $150.000 <small>· 60 min</small></div><div style="margin-top:3mm"><span class="btn btn-s" style="height:8mm;font-size:7.4pt;padding:0 5mm">Ver más</span></div></div>
+      </div>
+    </div>
+    <div class="avoid">
+      <div class="lab">Testimonio</div>
+      <div class="tst">
+        <div class="q">“</div>
+        <div class="stars">★★★★★</div>
+        <p>Me maquilló para mi grado y quedé encantada. Súper profesional.</p>
+        <div class="who"><div class="av"></div><div><b>Daniela R.</b><small>Grado · 2026</small></div></div>
+      </div>
+      <div class="lab" style="margin-top:5mm">Formulario</div>
+      <div class="inp"><small>Nombre</small>Valentina Gómez</div>
+      <div class="inp f" style="margin-top:2.5mm"><small>Fecha del evento</small>14 / 12 / 2026</div>
+      <div class="inp e" style="margin-top:2.5mm"><small>WhatsApp</small>311 555</div>
+      <div class="err">⚠ Ingresa un número válido de 10 dígitos</div>
+    </div>
+    <div class="avoid">
+      <div class="lab">Tarjeta de precio · destacada</div>
+      <div class="price hl" style="margin-top:4mm">
+        <span class="tag">Más elegido</span>
+        <h5>Novia</h5>
+        <div class="v">$450.000</div>
+        <small style="color:var(--taupe);font-size:7.2pt">Incluye prueba previa</small>
+        <ul><li>Asesoría y prueba de maquillaje</li><li>Maquillaje HD de larga duración</li><li>Pestañas premium</li><li>Kit de retoque</li><li>Domicilio en Bucaramanga</li></ul>
+        <span class="btn btn-p" style="height:9mm;font-size:7.8pt">Reservar fecha</span>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:7.2pt;margin-top:3mm;color:var(--taupe)">Precios ilustrativos — se definirán con Kirina.</p>
+</section>
+
+<section class="section">
+  <div class="sec-head"><div><span class="ov">Interfaz</span><h2>Especificaciones de componentes</h2></div></div>
+  <h3 style="margin-top:0">Tamaños de botón</h3>
+  <table style="margin-top:0">
+    <tr><th>Tamaño</th><th>Alto</th><th>Padding H</th><th>Texto</th><th>Reglas</th></tr>
+    <tr><td><strong>S</strong></td><td>40 px</td><td>20 px</td><td>14 px</td><td rowspan="3">Pill · ícono 20 px · flecha se desplaza 4 px en hover · área táctil ≥ 44 px · <code>:focus-visible</code> anillo 3 px</td></tr>
+    <tr><td><strong>M</strong></td><td>48 px</td><td>28 px</td><td>15 px</td></tr>
+    <tr><td><strong>L</strong></td><td>56 px</td><td>36 px</td><td>16 px</td></tr>
+  </table>
+  <h3>Detalle por componente</h3>
+  <table>
+    <tr><th style="width:34mm">Componente</th><th>Especificación</th></tr>
+    <tr><td><strong>Header</strong></td><td>80 px (64 px con scroll), sticky. Transparente sobre el hero → Marfil 90 % + <code>blur(12px)</code>. Enlace activo con punto Champagne. Menú móvil a pantalla completa en Noir, enlaces Cormorant 36 px.</td></tr>
+    <tr><td><strong>Tarjeta de servicio</strong></td><td>Imagen 4:5, radio 20 px, zoom 1.04 en hover. Ícono en círculo Blush sobre el borde. H4 + Small (máx. 3 líneas) + “Desde $” + duración + CTA.</td></tr>
+    <tr><td><strong>Galería</strong></td><td>Mosaico 4/3/2 columnas, gap 16 px. Hover: overlay degradado inferior + categoría. Lightbox con teclado y swipe. Slider antes/después con manija Champagne.</td></tr>
+    <tr><td><strong>Chips de filtro</strong></td><td>40 px, pill, Jost 500 14 px. Inactivo: borde blanco 25 %. Activo: fondo Rosa Pétalo, texto Noir.</td></tr>
+    <tr><td><strong>Testimonio</strong></td><td>Comillas Cormorant 80 px en Rosa Pétalo, estrellas Champagne 16 px, texto en itálica, avatar 56 px. Carrusel: 3 visibles en escritorio.</td></tr>
+    <tr><td><strong>Tarjeta de precio</strong></td><td>3 columnas. Destacada: badge “Más elegido”, borde 1.5 px Rosa Kirina, elevación. Precio Cormorant 600 44 px, lista con checks.</td></tr>
+    <tr><td><strong>Formulario</strong></td><td>Input 52 px, fondo Blanco, borde Línea, radio 8 px, label flotante. Focus: borde Rosa + anillo. Error: <code>#B3261E</code> + ícono. Campos: Nombre · WhatsApp · Servicio · Fecha · Lugar · Mensaje.</td></tr>
+    <tr><td><strong>Badge</strong></td><td>Pill 24 px, Jost 500 12 px MAYÚS, fondo Blush, texto Rosa Profundo.</td></tr>
+    <tr><td><strong>Divisor</strong></td><td>Línea 1 px degradado champagne, 120 px, rombo central opcional.</td></tr>
+    <tr><td><strong>Acordeón FAQ</strong></td><td>Fila 72 px, ícono “+” que rota 45°, transición de altura 300 ms.</td></tr>
+    <tr><td><strong>WhatsApp flotante</strong></td><td>60 px, inferior derecha a 24 px, aparece tras 400 px de scroll, pulso sutil cada 8 s.</td></tr>
+    <tr><td><strong>Overline</strong></td><td>Jost 500 12 px MAYÚS 0.2em, Rosa Kirina, línea de 32 px a la izquierda.</td></tr>
+  </table>
+</section>
+
+<!-- ═════════════ MOTION + VOICE ═════════════ -->
+<section class="section" id="s9">
+  <div class="sec-head"><span class="sec-num">09</span><div><span class="ov">Experiencia</span><h2>Movimiento y voz</h2></div></div>
+  <h3 style="margin-top:0">Tokens de movimiento</h3>
+  <table>
+    <tr><th>Token</th><th>Valor</th><th>Uso</th></tr>
+    <tr><td><code>--dur-fast</code></td><td>150 ms</td><td>Hover de color</td></tr>
+    <tr><td><code>--dur-base</code></td><td>250 ms</td><td>Botones, chips</td></tr>
+    <tr><td><code>--dur-slow</code></td><td>450 ms</td><td>Tarjetas, acordeón</td></tr>
+    <tr><td><code>--dur-reveal</code></td><td>800 ms</td><td>Aparición al hacer scroll</td></tr>
+    <tr><td><code>--ease-out</code></td><td>cubic-bezier(.22, 1, .36, 1)</td><td>Curva principal — salida suave y elegante</td></tr>
+  </table>
+  <div class="grid2">
+    <div class="note"><b>Reveal:</b> fade + 24 px hacia arriba, escalonado 80 ms. <b>Hero:</b> título palabra por palabra + parallax máx. 30 px. <b>Imágenes:</b> zoom 1.04 en 600 ms.</div>
+    <div class="note"><b>Accesibilidad:</b> todas las animaciones se desactivan con <code>prefers-reduced-motion: reduce</code>.</div>
+  </div>
+  <h3>Voz y tono</h3>
+  <div class="dosdont">
+    <div style="background:#EEF6F1"><h5 style="color:#2F7D5B">✓ Sí</h5><ul><li>Cercana y cálida, en “tú”</li><li>Frases cortas y seguras</li><li>Cómo se sentirá la clienta</li><li>“Agenda tu cita”, “Reserva tu fecha”</li></ul></div>
+    <div style="background:#FBEDEC"><h5 style="color:#B3261E">✕ No</h5><ul><li>Fría o corporativa</li><li>Exceso de exclamaciones</li><li>Tecnicismos sin explicar</li><li>“Haz clic aquí”, “Enviar”</li></ul></div>
+  </div>
+  <h3>Microcopy de referencia</h3>
+  <div class="grid3">
+    <div class="card" style="font-family:var(--display);font-style:italic;font-size:12.5pt;line-height:1.3">“Tu fecha es importante: reserva con anticipación.”</div>
+    <div class="card" style="font-family:var(--display);font-style:italic;font-size:12.5pt;line-height:1.3">“Respondo en menos de 2 horas por WhatsApp.”</div>
+    <div class="card" style="font-family:var(--display);font-style:italic;font-size:12.5pt;line-height:1.3">“Productos profesionales e hipoalergénicos.”</div>
+  </div>
+</section>
+
+<!-- ═════════════ ARCHITECTURE ═════════════ -->
+<section class="section" id="s10">
+  <div class="sec-head"><span class="sec-num">10</span><div><span class="ov">Estructura</span><h2>Arquitectura de la página de inicio</h2></div></div>
+  <div class="wf">
+    <div class="blk" style="background:#FBF7F3;border:1px dashed var(--line)"><span class="n" style="color:var(--taupe)">00</span><b>Header</b><span>Logo · Inicio · Servicios · Galería · Sobre mí · Precios · Contacto · CTA “Agenda tu cita”</span></div>
+    <div class="blk" style="background:linear-gradient(100deg,#F6E3E6,#FBF7F3)"><span class="n" style="color:var(--primary)">01</span><b>Hero</b><span>Display + lead + 3 beneficios + 2 CTA + mini prueba social (★ 5.0 · +300 clientas)</span></div>
+    <div class="blk" style="background:#fff;border:1px solid var(--line)"><span class="n" style="color:var(--primary)">02</span><b>Cifras<span class="new">NUEVO</span></b><span>Años de experiencia · Clientas · Novias · Valoración</span></div>
+    <div class="blk" style="background:#FBF7F3;border:1px solid var(--line)"><span class="n" style="color:var(--primary)">03</span><b>Servicios</b><span>4 tarjetas: Eventos · Grados · Bodas · Halloween — con precio desde y duración</span></div>
+    <div class="blk" style="background:#F6E3E6"><span class="n" style="color:var(--primary)">04</span><b>Cómo funciona<span class="new">NUEVO</span></b><span>Agenda → Asesoría → Tu día → Retoque / kit</span></div>
+    <div class="blk" style="background:#151012;color:#E9DCD8"><span class="n" style="color:var(--primary-soft)">05</span><b style="color:#fff">Galería</b><span>Filtros + mosaico + lightbox + antes/después + “Ver más trabajos”</span></div>
+    <div class="blk" style="background:#FBF7F3;border:1px solid var(--line)"><span class="n" style="color:var(--primary)">06</span><b>Sobre mí</b><span>Split 50/50 · bio · 3 valores · firma · marcas y certificaciones · CTA</span></div>
+    <div class="blk" style="background:#fff;border:1px solid var(--line)"><span class="n" style="color:var(--primary)">07</span><b>Precios<span class="new">NUEVO</span></b><span>3 paquetes (Social · Grado · Novia ★) + nota de domicilio</span></div>
+    <div class="blk" style="background:#FBEFF1"><span class="n" style="color:var(--primary)">08</span><b>Testimonios</b><span>Carrusel + valoración de Google</span></div>
+    <div class="blk" style="background:radial-gradient(120% 140% at 80% 50%,#A3202F,#6E1A2B 45%,#151012);color:#F2D6C5"><span class="n" style="color:#E89B4C">09</span><b style="color:#fff">Temporada</b><span>Módulo intercambiable — Halloween / Grados / Bodas / Navidad</span></div>
+    <div class="blk" style="background:#FBF7F3;border:1px solid var(--line)"><span class="n" style="color:var(--primary)">10</span><b>FAQ<span class="new">NUEVO</span></b><span>Domicilio · anticipo · prueba · duración · productos · alergias</span></div>
+    <div class="blk" style="background:#F6E3E6"><span class="n" style="color:var(--primary)">11</span><b>Reserva<span class="new">NUEVO</span></b><span>Formulario → WhatsApp · mapa de Bucaramanga · horario · redes</span></div>
+    <div class="blk" style="background:#151012;color:#E9DCD8"><span class="n" style="color:var(--primary-soft)">12</span><b style="color:#fff">Footer</b><span>Logo · frase · enlaces · servicios · contacto · redes · legal</span></div>
+    <div class="blk" style="background:#E7F8EE;border:1px solid #bfe8cf"><span class="n" style="color:#1c8f4a">+</span><b>WhatsApp flotante<span class="new">NUEVO</span></b><span>Botón fijo de contacto en un toque</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-head"><div><span class="ov">Estructura</span><h2>Wireframe del hero y mapa del sitio</h2></div></div>
+  <div class="hero-wf">
+    <div class="nav"><span class="lg">Kirina Maoly Alba</span><span>Inicio · Servicios · Galería · Sobre mí · Precios · Contacto</span><span class="cta">Agenda tu cita</span></div>
+    <div class="body">
+      <div class="l">
+        <span class="ov" style="font-size:5.6pt">— Maquillaje profesional</span>
+        <h6>Tu belleza en cada <em>momento especial</em></h6>
+        <p style="font-size:7pt;margin-bottom:3mm">Maquillaje profesional para resaltar lo mejor de ti.</p>
+        <div style="display:flex;gap:4mm;font-size:6pt;color:var(--cocoa);margin-bottom:3mm"><span>◇ Calidad</span><span>✎ Productos</span><span>♡ Estilo propio</span></div>
+        <div style="display:flex;gap:2mm"><span class="btn btn-p" style="height:7mm;font-size:6.4pt;padding:0 4mm">Agenda tu cita</span><span class="btn btn-s" style="height:7mm;font-size:6.4pt;padding:0 4mm">Ver portafolio</span></div>
+        <div style="font-size:6.4pt;margin-top:3mm;color:var(--cocoa)"><span style="color:var(--gold)">★★★★★</span> 5.0 · +300 clientas</div>
+      </div>
+      <div class="r">Fotografía principal</div>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:4mm">
+    <div>
+      <h3 style="margin-top:0">Mapa del sitio</h3>
+      <div class="tree"><span class="h">/</span>                    Inicio (one-page)
+<span class="h">/servicios/eventos</span>   <span class="c">fase 2</span>
+<span class="h">/servicios/grados</span>    <span class="c">fase 2</span>
+<span class="h">/servicios/bodas</span>     <span class="c">fase 2</span>
+<span class="h">/servicios/halloween</span> <span class="c">fase 2</span>
+<span class="h">/galeria</span>
+<span class="h">/sobre-mi</span>
+<span class="h">/precios</span>
+<span class="h">/contacto</span>
+<span class="h">/politica-de-privacidad</span></div>
+    </div>
+    <div>
+      <h3 style="margin-top:0">Fases</h3>
+      <div class="card" style="margin-bottom:3mm"><span class="ov">Fase 1</span><p style="margin:1mm 0 0;font-size:8.4pt">Sitio de una página con anclas, reserva por WhatsApp, galería filtrable.</p></div>
+      <div class="card"><span class="ov">Fase 2</span><p style="margin:1mm 0 0;font-size:8.4pt">Páginas por servicio para SEO local (“maquillaje de novia Bucaramanga”), portafolio completo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ QUALITY + FILES ═════════════ -->
+<section class="section" id="s11">
+  <div class="sec-head"><span class="sec-num">11</span><div><span class="ov">Calidad</span><h2>Accesibilidad, SEO y archivos</h2></div></div>
+  <div class="kpi">
+    <div><b>&lt; 2.5 s</b><small>LCP</small></div>
+    <div><b>&lt; 0.1</b><small>CLS</small></div>
+    <div><b>&lt; 200 ms</b><small>INP</small></div>
+    <div><b>≥ 90</b><small>LIGHTHOUSE</small></div>
+  </div>
+  <div class="grid3">
+    <div class="card"><span class="ov">Accesibilidad</span><ul style="list-style:none;font-size:8pt;color:var(--cocoa);margin-top:2mm;line-height:1.7"><li>◆ Contraste AA mínimo</li><li>◆ Navegación por teclado</li><li>◆ <code>:focus-visible</code> siempre</li><li>◆ <code>alt</code> descriptivo</li><li>◆ Táctil ≥ 44 px</li><li>◆ <code>lang="es-CO"</code></li></ul></div>
+    <div class="card"><span class="ov">SEO local</span><ul style="list-style:none;font-size:8pt;color:var(--cocoa);margin-top:2mm;line-height:1.7"><li>◆ Título con ciudad</li><li>◆ Schema <code>BeautySalon</code></li><li>◆ Open Graph 1200×630</li><li>◆ Google Business</li><li>◆ URLs por servicio</li></ul></div>
+    <div class="card"><span class="ov">Rendimiento</span><ul style="list-style:none;font-size:8pt;color:var(--cocoa);margin-top:2mm;line-height:1.7"><li>◆ <code>font-display: swap</code></li><li>◆ Precarga fuente principal</li><li>◆ AVIF / WebP</li><li>◆ Dimensiones explícitas</li><li>◆ JS mínimo, sin frameworks pesados</li></ul></div>
+  </div>
+  <h3>Estructura de archivos</h3>
+  <div class="tree"><span class="g">Kirina-Maoly/</span>
+├── index.html
+├── <span class="h">docs/design-system/</span>
+│   ├── KIRINA_DESIGN_SYSTEM.md    <span class="c">← documento técnico</span>
+│   ├── KIRINA_DESIGN_SYSTEM.pdf   <span class="c">← esta guía visual</span>
+│   └── source/                    <span class="c">← HTML fuente del PDF</span>
+├── <span class="h">assets/css/</span>
+│   ├── tokens.css      <span class="c">variables de diseño</span>
+│   ├── base.css        <span class="c">reset, tipografía, utilidades</span>
+│   ├── components.css  <span class="c">botones, tarjetas, formularios</span>
+│   └── sections.css    <span class="c">hero, servicios, galería…</span>
+├── <span class="h">assets/js/</span>
+│   ├── main.js         <span class="c">header, menú, scroll reveal</span>
+│   ├── gallery.js      <span class="c">filtros, lightbox, antes/después</span>
+│   └── booking.js      <span class="c">formulario → WhatsApp</span>
+├── <span class="h">assets/img/</span>       <span class="c">hero · services · gallery · about · testimonials</span>
+├── <span class="h">assets/icons/</span>     <span class="c">logo SVG, favicon, monograma</span>
+└── README.md</div>
+</section>
+
+<section class="back">
+  <div class="glow"></div>
+  <div class="x">
+    <div style="font-family:var(--script);font-size:40pt;line-height:1">Kirina Maoly Alba</div>
+    <div style="font:500 7.5pt var(--body);letter-spacing:.42em;color:var(--gold);margin-top:3mm">MAKEUP ARTIST</div>
+    <div style="width:40mm;height:1px;background:linear-gradient(90deg,transparent,#C9A46A,transparent);margin:10mm auto"></div>
+    <div style="font-family:var(--display);font-style:italic;font-size:16pt;color:var(--primary-soft)">Tu belleza en cada momento especial</div>
+    <div style="font-size:8pt;color:rgba(251,247,243,.6);margin-top:6mm;letter-spacing:.08em">Sistema de diseño v1.0 · Bucaramanga, Colombia · 2026</div>
+  </div>
+</section>
+
+</body>
+</html>
